@@ -1,5 +1,7 @@
-const faker = require(`faker`);
-const db = require(`./database/database.js`);
+/* eslint-disable prefer-const */
+/* eslint-disable no-plusplus */
+const faker = require('faker');
+const db = require('./database/database.js');
 
 // Generate records for 100 restaurants
 
@@ -11,7 +13,7 @@ for (let i = 1; i <= 100; i++) {
   let imageArray = [];
   for (let j = 0; j < imageCount; j++) {
     let imageNumber = Math.floor(49 * Math.random());
-    while (imageArray.includes(imageNumber)) { // I want no duplicated images for a single restaurant
+    while (imageArray.includes(imageNumber)) { // no duplicate images for restaurant
       imageNumber = Math.floor(49 * Math.random());
     }
     imageArray.push(imageNumber);

@@ -10,7 +10,7 @@
   "scripts": {
     "seed": "node server/seed.js",
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js --watch",
     "start": "nodemon server/index.js",
     "schema": "mysql -u root < server/schema.sql"
   },

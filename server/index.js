@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
+// const path = require('path');
 const cors = require('cors');
 const db = require('./database/database.js');
 
@@ -19,5 +19,6 @@ app.get('/api/photos/:restaurantID', (req, res) => {
 });
 
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(`App listening on ${port}`);
 });

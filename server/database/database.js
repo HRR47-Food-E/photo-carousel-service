@@ -36,7 +36,7 @@ const retrieveImages = function retrieveImagesByRestaurantId(restaurantID, req, 
       return;
     }
     // lint doesn't like it if you try to assign new values to result directly (no-param-reassign)
-    const s3Prefix = 'https://restaurant-photo-carousel.s3.us-east-2.amazonaws.com/';
+    const s3Prefix = 'https://tagaz.s3-us-west-1.amazonaws.com/';
     const photoArray = result;
     for (let i = 0; i < photoArray.length; i += 1) {
       photoArray[i].Image_id = i + 1;

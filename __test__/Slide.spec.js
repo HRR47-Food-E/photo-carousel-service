@@ -18,7 +18,7 @@ configure({ adapter: new Adapter() });
 describe('Slide', () => {
   it('should contain an img tag', () => {
     const slideProps = {
-      url: 'https://restaurant-photo-carousel.s3.us-east-2.amazonaws.com/img0042.jpeg',
+      url: 'https://tagaz.s3-us-west-1.amazonaws.com/img0042.jpeg',
     };
     const slide = mount(<Slide {...slideProps}/>);
     expect(slide.find('img').length).toBe(1);

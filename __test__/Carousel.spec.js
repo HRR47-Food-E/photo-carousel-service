@@ -20,7 +20,7 @@ describe('Carousel', () => {
     const carouselProps = {
       photoArray: [{
         Image_id: 1,
-        Image_url: 'https://restaurant-photo-carousel.s3.us-east-2.amazonaws.com/img0042.jpeg',
+        Image_url: 'https://tagaz.s3-us-west-1.amazonaws.com/img0042.jpeg',
       }],
       displayCarousel: true,
       startingPhoto: 0,
@@ -35,7 +35,7 @@ describe('Carousel', () => {
     const carouselProps = {
       photoArray: [{
         Image_id: 1,
-        Image_url: 'https://restaurant-photo-carousel.s3.us-east-2.amazonaws.com/img0042.jpeg',
+        Image_url: 'https://tagaz.s3-us-west-1.amazonaws.com/img0042.jpeg',
       }],
       displayCarousel: false,
       startingPhoto: 0,

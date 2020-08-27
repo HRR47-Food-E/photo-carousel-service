@@ -29,3 +29,5 @@ build/
 dist/
 public/dist
 
+# Generated Data
+__data.csv

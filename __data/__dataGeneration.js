@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
 const fs = require('fs');
 
-const writeStream = fs.createWriteStream('./__data.txt');
+console.time('Data Generation');
 
-for (let i = 0; i < 10000000; i += 1) {
+const writeStream = fs.createWriteStream('./__data.csv');
+
+for (let i = 0; i < 100; i += 1) {
   writeStream.write(`testing ${i},`, 'utf8');
 }
 
@@ -12,3 +14,5 @@ writeStream.on('finish', () => {
 });
 
 writeStream.end();
+
+console.timeEnd('Data Generation');

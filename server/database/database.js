@@ -55,6 +55,18 @@ const retrieveImages = function retrieveImagesByRestaurantId(restaurantID, req, 
   });
 };
 
+const addRestaurant = function addRestaurant(name, callback) {
+  const queryString = `INSERT into Restaurants (Restaurant_Name) values ("${name}")`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.insertRestaurant = insertRestaurant;
 module.exports.insertImage = insertImage;
 module.exports.retrieveImages = retrieveImages;
+module.exports.addRestaurant = addRestaurant;

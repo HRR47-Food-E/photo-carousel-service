@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const bodyParser = require('body-parser');
 // const path = require('path');
@@ -16,6 +17,18 @@ app.use('/:id', express.static('public'));
 // API ROUTES
 app.get('/api/photos/:restaurantID', (req, res) => {
   db.retrieveImages(req.params.restaurantID, req, res);
+});
+
+app.post('/api/add-restaurant', (req, res) => {
+  console.log(req.body.name);
+  const { name } = req.body;
+  db.addRestaurant(name, (err) => {
+    if (err) {
+      res.send(`An error occurred: ${err}`);
+    } else {
+      res.sendStatus(201);
+    }
+  });
 });
 
 app.listen(port, () => {

@@ -77,8 +77,20 @@ const updateRestaurant = function updateRestaurant(id, name, callback) {
   });
 };
 
+const deleteRestaurant = function deleteRestaurant(id, callback) {
+  const queryString = `DELETE FROM Restaurants WHERE Restaurant_id = ${id}`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.insertRestaurant = insertRestaurant;
 module.exports.insertImage = insertImage;
 module.exports.retrieveImages = retrieveImages;
 module.exports.addRestaurant = addRestaurant;
 module.exports.updateRestaurant = updateRestaurant;
+module.exports.deleteRestaurant = deleteRestaurant;

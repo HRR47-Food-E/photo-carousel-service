@@ -66,7 +66,19 @@ const addRestaurant = function addRestaurant(name, callback) {
   });
 };
 
+const updateRestaurant = function updateRestaurant(id, name, callback) {
+  const queryString = `UPDATE Restaurants SET Restaurant_Name = '${name}' WHERE Restaurant_id = ${id}`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.insertRestaurant = insertRestaurant;
 module.exports.insertImage = insertImage;
 module.exports.retrieveImages = retrieveImages;
 module.exports.addRestaurant = addRestaurant;
+module.exports.updateRestaurant = updateRestaurant;

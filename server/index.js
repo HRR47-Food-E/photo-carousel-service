@@ -19,6 +19,7 @@ app.get('/api/photos/:restaurantID', (req, res) => {
   db.retrieveImages(req.params.restaurantID, req, res);
 });
 
+// Create new restaurant
 app.post('/api/add-restaurant', (req, res) => {
   console.log(req.body.name);
   const { name } = req.body;
@@ -30,6 +31,21 @@ app.post('/api/add-restaurant', (req, res) => {
     }
   });
 });
+
+// Update restaurant
+app.put('/api/update-restaurant/:id', (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  db.updateRestaurant(id, name, (err) => {
+    if (err) {
+      res.status(500).send(`An error occurred: ${err}`);
+    } else {
+      res.status(201).send(`Restaurant ID ${id} has been updated with the name: ${name}`);
+    }
+  });
+});
+
+// Delete restaurant
 
 app.listen(port, () => {
   // eslint-disable-next-line no-console

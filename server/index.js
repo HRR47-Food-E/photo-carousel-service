@@ -24,9 +24,9 @@ app.post('/api/add-restaurant', (req, res) => {
   const { name } = req.body;
   db.addRestaurant(name, (err) => {
     if (err) {
-      res.send(`An error occurred: ${err}`);
+      res.status(500).send(`An error occurred: ${err}`);
     } else {
-      res.sendStatus(201);
+      res.status(201).send(`${name} was added to the Restaurant database!`);
     }
   });
 });

@@ -55,6 +55,42 @@ const retrieveImages = function retrieveImagesByRestaurantId(restaurantID, req, 
   });
 };
 
+const addRestaurant = function addRestaurant(name, callback) {
+  const queryString = `INSERT into Restaurants (Restaurant_Name) values ("${name}")`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const updateRestaurant = function updateRestaurant(id, name, callback) {
+  const queryString = `UPDATE Restaurants SET Restaurant_Name = '${name}' WHERE Restaurant_id = ${id}`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const deleteRestaurant = function deleteRestaurant(id, callback) {
+  const queryString = `DELETE FROM Restaurants WHERE Restaurant_id = ${id}`;
+  connection.query(queryString, (err, results) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
 module.exports.insertRestaurant = insertRestaurant;
 module.exports.insertImage = insertImage;
 module.exports.retrieveImages = retrieveImages;
+module.exports.addRestaurant = addRestaurant;
+module.exports.updateRestaurant = updateRestaurant;
+module.exports.deleteRestaurant = deleteRestaurant;

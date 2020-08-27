@@ -90,7 +90,8 @@ A GET request to the above endpoint will fetch an array of object containing the
 ```
 A POST request to the above endpoint will create a new restaurant in the database with the supplied name.
 The following JSON format is required in the POST request's body in order for the restaurant to be successfully created:
-![JSON POST request format](https://drive.google.com/file/d/1uoooZC1ylQb9SOubVF_Tzz7Yteri5h2w/view?usp=sharing)
+
+> {"name":"New Restaurant"}
 
 ### PUT
 ```sh
@@ -98,12 +99,11 @@ The following JSON format is required in the POST request's body in order for th
 ```
 A PUT request to the above endpoint will update an existing restaurant with the supplied ID.
 The following JSON format is required in the PUT request's body in order for the restaurant to be successfully updated:
-![JSON PUT request format](https://drive.google.com/file/d/1DJT130ISCqDOaj2maqGerE8yyqoEfZta/view?usp=sharing)
+
+> {"name":"Updated Restaurant"}
 
 ### DELETE
 ```sh
 /api/delete-restaurant/:id
 ```
 A PUT request to the above endpoint will delete an existing restaurant with the supplied ID.
-The following JSON format is required in the PUT request's body in order for the restaurant to be successfully deleted:
-![JSON DELETE request format](https://drive.google.com/file/d/1z5B_w6yNymG9uMbWh9SOZz9I36haMkRi/view?usp=sharing)

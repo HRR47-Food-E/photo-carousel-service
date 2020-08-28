@@ -54,7 +54,7 @@ npm install
 ```sh
 mysql.server start
 mysql
-source server/schema.sql
+source server/database/mysql/schema.sql
 exit
 npm run seed
 ```

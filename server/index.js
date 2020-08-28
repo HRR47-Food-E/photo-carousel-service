@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const path = require('path');
 const cors = require('cors');
-const db = require('./database/database.js');
+const db = require('./database/mysql/queryHandlers.js');
 
 const app = express();
 const port = 3001;

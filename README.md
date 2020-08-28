@@ -79,31 +79,35 @@ npm run test
 > Use the following routes for CRUD requests to the server:
 
 ### GET
-```sh
-/api/photos/:restaurantID
-```
+
+> Endpoint: /api/photos/:id
+
 A GET request to the above endpoint will fetch an array of object containing the restaurant name and URLs for all photos associated with that restaurant.
 
 ### POST
-```sh
-/api/add-restaurant
-```
+
+> Endpoint: /api/add-restaurant
+
 A POST request to the above endpoint will create a new restaurant in the database with the supplied name.
 The following JSON format is required in the POST request's body in order for the restaurant to be successfully created:
 
-> {"name":"New Restaurant"}
+```sh
+{"name":"New Restaurant"}
+```
 
 ### PUT
-```sh
-/api/update-restaurant/:id
-```
+
+> Endpoint: /api/update-restaurant/:id
+
 A PUT request to the above endpoint will update an existing restaurant with the supplied ID.
 The following JSON format is required in the PUT request's body in order for the restaurant to be successfully updated:
 
-> {"name":"Updated Restaurant"}
+```sh
+{"name":"Updated Restaurant"}
+```
 
 ### DELETE
-```sh
-/api/delete-restaurant/:id
-```
+
+> Endpoint: /api/delete-restaurant/:id
+
 A PUT request to the above endpoint will delete an existing restaurant with the supplied ID.

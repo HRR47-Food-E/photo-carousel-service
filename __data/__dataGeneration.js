@@ -2,18 +2,17 @@
 const fs = require('fs');
 const faker = require('faker');
 
-// RESUME W/ LOOP OF 3, FIGURE OUT WAY TO ADD BRACKETS AND COMMAS LOGICALLY
-// TEST WITH 10, 1000, ETC...
-
 console.time('Data Generation');
 
 const writeStream = fs.createWriteStream('./__data.csv');
 
-for (let i = 0; i < 1; i += 1) {
+const target = 10000000;
+
+for (let i = 0; i < target; i += 1) {
   // Create object to store restaurant data
   const restaurantData = {};
   // Generate random fake restaurant name
-  restaurantData.restaurantName = faker.company.companyName();
+  restaurantData.name = faker.company.companyName();
   // Create array to store photo filenames
   const photos = [];
   // Determine random number of photos for each restaurant (15-25)
@@ -36,14 +35,18 @@ for (let i = 0; i < 1; i += 1) {
     }
   }
 
-  restaurantData.photos = photos;
+  restaurantData.photoArray = photos;
 
   // write restaurant Data to file as a JSON string
-  writeStream.write(`${JSON.stringify(restaurantData)},`, 'utf8');
+  if (i === target - 1) {
+    writeStream.write(`${JSON.stringify(restaurantData)}`, 'utf8');
+  } else {
+    writeStream.write(`${JSON.stringify(restaurantData)}\n`, 'utf8');
+  }
 }
 
 writeStream.on('finish', () => {
-  console.log('Wrote all data to file');
+  console.log(`Wrote ${target} records to ./__data.csv`);
 });
 
 writeStream.end();

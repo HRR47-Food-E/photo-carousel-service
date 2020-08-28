@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
@@ -68,6 +69,7 @@ class App extends React.Component {
         console.log('Request failed');
       },
       complete: (res) => {
+        console.log(res.responseJSON);
         this.setState({
           photoArray: res.responseJSON.photoArray,
           name: res.responseJSON.name.toUpperCase(),

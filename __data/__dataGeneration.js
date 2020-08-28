@@ -20,14 +20,16 @@ for (let i = 0; i < target; i += 1) {
 
   // run while loop until photos length is equal to photosPerRestaurant
   while (photos.length < photosPerRestaurant) {
-    // generate file number between 1-52
-    const fileNum = Math.floor(Math.random() * 53);
-    // create a new filename - example: img0001.jpeg OR img0010.jpeg
+    // generate file number between 0-332
+    const fileNum = Math.floor(Math.random() * 333);
+    // create a new filename - example: img0001.jpeg OR img0010.jpeg OR img0100.jpeg
     let filename;
     if (fileNum < 10) {
       filename = `img000${fileNum}.jpeg`;
-    } else {
+    } else if (fileNum < 100) {
       filename = `img00${fileNum}.jpeg`;
+    } else {
+      filename = `img0${fileNum}.jpeg`;
     }
     // check if photos array contains filename already, push if not
     if (!photos.includes(filename)) {

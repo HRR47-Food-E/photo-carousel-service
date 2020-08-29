@@ -10,15 +10,14 @@ client.connect();
 
 const queryHandlers = {
 
-  addRestaurant: function addRestaurant(name, photoArray) {
-    const queryString = `INSERT INTO restaurants (name, images) values ('${name}', '${JSON.stringify(photoArray)}')`;
+  addRestaurant: function addRestaurant(name, photos) {
+    const queryString = `INSERT INTO restaurants (name, images) values ('${name}', '${photos}')`;
     client.query(queryString, (err) => {
       if (err) {
-        console.log(`An error occurred: ${err}`);
+        console.log(`An error occurred: ${err.stack}`);
       } else {
         console.log('Data loaded successfully');
       }
-      client.end();
     });
   },
 

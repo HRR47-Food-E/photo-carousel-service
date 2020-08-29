@@ -39,7 +39,7 @@ for (let i = 1; i <= target; i += 1) {
     }
   }
 
-  // attach photos and id to restaurant data object
+  // attach photos to restaurant data object
   restaurantData.photos = photos;
 
   // write restaurant Data to file as a JSON string

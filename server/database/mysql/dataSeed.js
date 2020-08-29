@@ -1,7 +1,7 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-plusplus */
 const faker = require('faker');
-const db = require('./database/mysql/queryHandlers.js');
+const db = require('./queryHandlers.js');
 
 // Generate records for 100 restaurants
 

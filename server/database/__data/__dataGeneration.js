@@ -10,12 +10,12 @@ const target = 10000000;
 
 for (let i = 1; i <= target; i += 1) {
   // Create string to store restaurant data
-  let restaurantData = '';
+  let restaurantData = `${i},`;
   // Generate random fake restaurant name
   let name = faker.company.companyName();
   name = name.split('');
   if (name.includes(',')) {
-    name.splice(name.indexOf(','), 1);
+    name.splice(name.indexOf(','), 1, '/');
   }
   name = name.join('');
   restaurantData += `${name},`;
@@ -28,15 +28,7 @@ for (let i = 1; i <= target; i += 1) {
     // generate file number between 0-332
     const fileNum = Math.floor(Math.random() * 333);
     // create a new filename string - example: '0001' OR '0010' OR '0100'
-    let filename;
-    if (fileNum < 10) {
-      filename = `000${fileNum}`;
-    } else if (fileNum < 100) {
-      filename = `00${fileNum}`;
-    } else {
-      filename = `0${fileNum}`;
-    }
-    // if photos array does not include filename, push it
+    const filename = fileNum.toString().padStart(4, '0');
     if (!photos.includes(filename)) {
       photos.push(filename);
     }

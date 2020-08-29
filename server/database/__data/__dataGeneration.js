@@ -8,7 +8,7 @@ const writeStream = fs.createWriteStream('./__data.csv');
 
 const target = 10000000;
 
-for (let i = 0; i < target; i += 1) {
+for (let i = 1; i <= target; i += 1) {
   // Create object to store restaurant data
   const restaurantData = {};
   // add unique id to each restaurant

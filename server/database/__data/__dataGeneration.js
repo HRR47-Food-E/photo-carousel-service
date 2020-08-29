@@ -11,6 +11,8 @@ const target = 10000000;
 for (let i = 0; i < target; i += 1) {
   // Create object to store restaurant data
   const restaurantData = {};
+  // add unique id to each restaurant
+  restaurantData.id = i;
   // Generate random fake restaurant name
   restaurantData.name = faker.company.companyName();
   // Create array to store photo filenames
@@ -37,14 +39,11 @@ for (let i = 0; i < target; i += 1) {
     }
   }
 
-  restaurantData.photoArray = photos;
+  // attach photos and id to restaurant data object
+  restaurantData.photos = photos;
 
   // write restaurant Data to file as a JSON string
-  if (i === target - 1) {
-    writeStream.write(`${JSON.stringify(restaurantData)}`, 'utf8');
-  } else {
-    writeStream.write(`${JSON.stringify(restaurantData)}\n`, 'utf8');
-  }
+  writeStream.write(`${JSON.stringify(restaurantData)}\n`, 'utf8');
 }
 
 writeStream.on('finish', () => {

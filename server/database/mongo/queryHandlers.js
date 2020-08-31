@@ -14,19 +14,30 @@ db
   });
 
 const restaurantSchema = new mongoose.Schema({
-  id: Number,
+  id: {
+    type: Number,
+    unique: true,
+  },
   name: String,
   images: String,
 });
 
 const Restaurants = mongoose.model('Restaurants', restaurantSchema);
 
-// console.time('find');
-Restaurants.find({ id: 10000000 }, (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(data);
-    // console.timeEnd('find');
-  }
-});
+module.exports = {
+
+  // Fetch restaurant data by ID
+  findRestaurant(restaurantId, callback) {
+    console.time('Find Restaurant by ID');
+    Restaurants.find({ id: restaurantId }, (err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+      console.timeEnd('Find Restaurant by ID');
+      mongoose.disconnect();
+    });
+  },
+
+};

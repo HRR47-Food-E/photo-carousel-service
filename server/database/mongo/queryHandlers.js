@@ -41,3 +41,7 @@ module.exports = {
   },
 
 };
+
+module.exports.findRestaurant(10000000, (err, data) => {
+  err ? console.log(err) : console.log(data);
+});

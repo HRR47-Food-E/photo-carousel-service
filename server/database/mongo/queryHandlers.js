@@ -28,20 +28,28 @@ module.exports = {
 
   // Fetch restaurant data by ID
   findRestaurant(restaurantId, callback) {
-    console.time('Find Restaurant by ID');
     Restaurants.find({ id: restaurantId }, (err, data) => {
       if (err) {
         callback(err, null);
       } else {
         callback(null, data);
       }
-      console.timeEnd('Find Restaurant by ID');
       mongoose.disconnect();
     });
   },
 
 };
 
-module.exports.findRestaurant(10000000, (err, data) => {
-  err ? console.log(err) : console.log(data);
+// QUERY FOR TESTING EXECUTION TIME
+// chain command below to view MongoDB execution stats
+// .explain('executionStats')
+console.time('Find Restaurant by ID');
+Restaurants.find({ id: 10000000 }, (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+  console.timeEnd('Find Restaurant by ID');
+  mongoose.disconnect();
 });

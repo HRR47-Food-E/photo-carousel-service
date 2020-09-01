@@ -38,6 +38,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Nodemon 2.0.4
 - Path 0.12.7
 - Prop-Types 15.7.2
+- Mongoose 5.10.2
+- pg 8.3.3
+- Popper.js 1.16.1
 
 ## Development
 

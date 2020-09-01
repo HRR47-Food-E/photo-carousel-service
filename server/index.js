@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const path = require('path');
 const cors = require('cors');
-const db = require('./database/postgres/queryHandlers.js');
+// const db = require('./database/postgres/queryHandlers.js');
+const db = require('./database/mongo/queryHandlers.js');
 
 const app = express();
 const port = 3001;
@@ -22,8 +23,8 @@ app.get('/api/photos/:restaurantID', (req, res) => {
       res.status(500).send('An internal error occurred');
     } else {
       res.status(200).send(data);
-      console.timeEnd('GET');
     }
+    console.timeEnd('GET');
   });
 });
 

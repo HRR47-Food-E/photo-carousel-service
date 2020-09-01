@@ -32,9 +32,37 @@ module.exports = {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, data);
+        // create response data object
+        // this will create the data shape the client expects
+        const resData = {};
+        // pull restaurant name from DB data
+        let { name } = data[0];
+        // replace any slashes with commas
+        if (name.includes('/')) {
+          name = name.split('/');
+          name = name.join(',');
+        }
+        // attach name to response data object
+        resData.name = name;
+        // attach photo array to response data object
+        resData.photoArray = [];
+        // split photo string from DB data into array of filenames
+        const photos = data[0].images.split(':');
+        // S3 URL
+        const s3 = 'https://tagaz.s3-us-west-1.amazonaws.com/img';
+        // for each photo, build an object that has:
+        // 1) concatenated S3 image URL
+        // 2) image ID number starting at 1 (for layout purposes)
+        for (let i = 0; i < photos.length; i += 1) {
+          const photo = {};
+          photo.Image_url = `${s3}${photos[i]}.jpeg`;
+          photo.Image_id = i + 1;
+          // push each photo onto response data object
+          resData.photoArray.push(photo);
+        }
+        // send response data object to server/client
+        callback(null, resData);
       }
-      mongoose.disconnect();
     });
   },
 
@@ -43,13 +71,13 @@ module.exports = {
 // QUERY FOR TESTING EXECUTION TIME
 // chain command below to view MongoDB execution stats
 // .explain('executionStats')
-console.time('Find Restaurant by ID');
-Restaurants.find({ id: 10000000 }, (err, data) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(data);
-  }
-  console.timeEnd('Find Restaurant by ID');
-  mongoose.disconnect();
-});
+// console.time('Find Restaurant by ID');
+// Restaurants.find({ id: 10000000 }, (err, data) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(data);
+//   }
+//   console.timeEnd('Find Restaurant by ID');
+//   mongoose.disconnect();
+// });

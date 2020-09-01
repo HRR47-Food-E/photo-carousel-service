@@ -43,6 +43,7 @@ module.exports = {
           const photo = {};
           photo.Image_url = `${s3}${photos[i]}.jpeg`;
           photo.Image_id = i + 1;
+          // push each photo onto response data object
           resData.photoArray.push(photo);
         }
         // send response data object to server/client

@@ -25,11 +25,15 @@ module.exports = {
 };
 
 // QUERY FOR TESTING EXECUTION TIME
-// client.query('EXPLAIN (FORMAT YAML, ANALYZE) SELECT * FROM restaurants WHERE id = 10000000', (err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(data);
-//   }
-//   client.end();
-// });
+// add line below to beginning of query string to view PSQL execution stats
+// EXPLAIN (FORMAT YAML, ANALYZE)
+client.query('SELECT * FROM restaurants WHERE id = 10000000', (err, data) => {
+  console.time('Find Restaurant by ID');
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+  console.timeEnd('Find Restaurant by ID');
+  client.end();
+});

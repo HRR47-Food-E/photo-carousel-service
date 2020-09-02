@@ -56,6 +56,7 @@ From within the root directory of the repo, run this command to generate the dat
 
 ```sh
 npm run generate
+```
 
 ### Installing & Setting up PostgreSQL
 

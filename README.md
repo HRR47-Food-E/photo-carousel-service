@@ -52,7 +52,7 @@ npm install
 
 > Data will be generated for 10 million primary records and saved to a CSV file in server/database/__data/
 
-From within the root directory of the repo, run this command to generate the data. This process should not take longer than 15 minutes.
+From within the server/database/__data directory, run this command to generate the data. This process should not take longer than 15 minutes.
 
 ```sh
 npm run generate

@@ -132,7 +132,7 @@ npm run test
 
 ### GET
 
-> Endpoint: /api/photos/:id
+> Endpoint: /restaurant/:id
 
 A GET request to the above endpoint will fetch an array of object containing the restaurant name and URLs for all photos associated with that restaurant.
 

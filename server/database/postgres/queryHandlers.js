@@ -52,6 +52,12 @@ module.exports = {
     });
   },
 
+  addRestaurant(){},
+
+  updateRestaurant(){},
+
+  deleteRestaurant(){},
+
 };
 
 // QUERY FOR TESTING EXECUTION TIME

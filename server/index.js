@@ -16,9 +16,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/:id', express.static('public'));
 
 // API ROUTES
-app.get('/api/photos/:restaurantID', (req, res) => {
+app.get('/restaurant/:id', (req, res) => {
   console.time('GET');
-  db.findRestaurant(req.params.restaurantID, (err, data) => {
+  db.findRestaurant(req.params.id, (err, data) => {
     if (err) {
       res.status(500).send('An internal error occurred');
     } else {

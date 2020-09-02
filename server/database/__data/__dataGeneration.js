@@ -8,6 +8,9 @@ const writeStream = fs.createWriteStream('./__data.csv');
 
 const target = 10000000;
 
+// Create CSV column header line
+writeStream.write('name, images\n');
+
 for (let i = 1; i <= target; i += 1) {
   // Create string to store restaurant data
   let restaurantData = '';

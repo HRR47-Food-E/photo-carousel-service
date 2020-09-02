@@ -56,13 +56,6 @@ From within the root directory of the repo, run this command to generate the dat
 
 ```sh
 npm run generate
-```
-
-Once complete, open the CSV file and add a newline to the top with the following text. This specifies the column names as they will be named within the PSQL table schema.
-
-```sh
-name, images
-```
 
 ### Installing & Setting up PostgreSQL
 

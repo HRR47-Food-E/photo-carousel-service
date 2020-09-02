@@ -61,7 +61,7 @@ npm run generate
 Once complete, open the CSV file and add a newline to the top with the following text. This specifies the column names as they will be named within the PSQL table schema.
 
 ```sh
-id, name, images
+name, images
 ```
 
 ### Installing & Setting up PostgreSQL

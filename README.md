@@ -107,8 +107,9 @@ DELIMITER ','
 CSV HEADER;
 ```
 
-For troubleshooting, refer to this setup guide: https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
-Or this guide on copying CSV data to PSQL: https://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/
+- For troubleshooting, refer to this setup guide: https://gist.github.com/ibraheem4/ce5ccd3e4d7a65589ce84f2a3b7c23a3
+
+- Or this guide on copying CSV data to PSQL: https://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/
 
 ### Build Webpack Bundle (and watch files)
 ```sh

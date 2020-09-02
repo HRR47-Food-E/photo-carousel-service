@@ -20,11 +20,21 @@ app.get('/restaurant/:id', (req, res) => {
   console.time('GET');
   db.findRestaurant(req.params.id, (err, data) => {
     if (err) {
-      res.status(500).send('An internal error occurred');
+      res.status(500).send(`An internal error occurred: ${err}`);
     } else {
       res.status(200).send(data);
     }
     console.timeEnd('GET');
+  });
+});
+
+app.post('/restaurant/create', (req, res) => {
+  db.addRestaurant(req.body, (err, data) => {
+    if (err) {
+      res.status(500).send(`An internal error occurred: ${err}`);
+    } else {
+      res.status(201).send(data);
+    }
   });
 });
 

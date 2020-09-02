@@ -62,7 +62,15 @@ module.exports = {
       if (err) {
         callback(err, null);
       } else {
-        callback(null, data);
+        let resData = {};
+        client.query('SELECT id FROM restaurants ORDER BY id DESC LIMIT 1', (error, id) => {
+          if (err) {
+            resData.newId = 'Error: ID could not be found';
+          } else {
+            resData.newId = `New ID: ${id.rows[0].id}`;
+          }
+          callback(null, resData);
+        });
       }
     });
   },
@@ -70,6 +78,18 @@ module.exports = {
   updateRestaurant() { },
 
   deleteRestaurant() { },
+
+  getLastRestaurantId() {
+    let id = -1;
+    client.query('SELECT id FROM restaurants ORDER BY id DESC LIMIT 1', (err, data) => {
+      if (err) {
+        id = 'Error: ID could not be found';
+      } else {
+        id = data;
+        return id;
+      }
+    });
+  },
 
 };
 

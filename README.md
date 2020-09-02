@@ -154,17 +154,17 @@ Upon success, the ID of the new restaurant will be returned in the server respon
 
 ### PUT
 
-> Endpoint: /api/update-restaurant/:id
+> Endpoint: /restaurant/:id
 
 A PUT request to the above endpoint will update an existing restaurant with the supplied ID.
 The following JSON format is required in the PUT request's body in order for the restaurant to be successfully updated:
 
 ```sh
-{"name":"Updated Restaurant"}
+{ "name":"Updated Restaurant Name", "images":"0000:0001:0002:0003:0004:0005" }
 ```
 
 ### DELETE
 
-> Endpoint: /api/delete-restaurant/:id
+> Endpoint: /restaurant/:id
 
 A PUT request to the above endpoint will delete an existing restaurant with the supplied ID.

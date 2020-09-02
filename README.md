@@ -92,7 +92,7 @@ createdb 'tagaz'
 psql tagaz
 ```
 
-4. Run schema file to create table "restaurant" with the correct schema:
+4. Run schema file to create table "restaurant":
 
 ```sh
 \i server/database/postgres/schema.sql;
@@ -101,7 +101,7 @@ psql tagaz
 5. Copy CSV data into restaurants table
 
 ```sh
-COPY restaurants(id, name, images)
+COPY restaurants(name, images)
 FROM <path to CSV file from your computer root directory>
 DELIMITER ','
 CSV HEADER;

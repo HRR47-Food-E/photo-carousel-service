@@ -38,6 +38,28 @@ app.post('/restaurant', (req, res) => {
   });
 });
 
+app.put('/restaurant/:id', (req, res) => {
+  db.updateRestaurant(req, (err) => {
+    if (err) {
+      res.status(500).send(`An error occurred: ${err}`);
+    } else {
+      res.status(200).send(`Restaurant ${req.params.id} has been updated with the name: ${req.body.name}`);
+    }
+  });
+});
+
+// // Delete restaurant
+// app.delete('/api/delete-restaurant/:id', (req, res) => {
+//   const { id } = req.params;
+//   db.deleteRestaurant(id, (err) => {
+//     if (err) {
+//       res.status(500).send(`An error occurred: ${err}`);
+//     } else {
+//       res.status(200).send(`Restaurant ${id} has been deleted`);
+//     }
+//   });
+// });
+
 app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on ${port}`);

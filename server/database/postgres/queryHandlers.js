@@ -81,7 +81,23 @@ module.exports = {
     });
   },
 
-  updateRestaurant() { },
+  // Update existing restaurant in PSQL database
+  updateRestaurant(req, callback) {
+    // create variables for data from request
+    const { id } = req.params;
+    const { name } = req.body;
+    const { images } = req.body;
+    // create query string for PSQL update
+    const queryString = `UPDATE restaurants SET name = '${name}', images = '${images}' WHERE id = ${id}`;
+    // send query to PSQL
+    client.query(queryString, (err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
 
   deleteRestaurant() { },
 

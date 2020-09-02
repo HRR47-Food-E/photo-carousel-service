@@ -99,6 +99,7 @@ module.exports = {
     });
   },
 
+  // Delete existing restaurant from PSQL database
   deleteRestaurant(req, callback) {
     const { id } = req.params;
     const queryString = `DELETE FROM restaurants where id = ${id}`;

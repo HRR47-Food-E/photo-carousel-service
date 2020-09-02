@@ -15,7 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/:id', express.static('public'));
 
-// API ROUTES
+// API ROUTES //
+
+// Get restaurant data by ID
 app.get('/restaurant/:id', (req, res) => {
   console.time('GET');
   db.findRestaurant(req.params.id, (err, data) => {
@@ -28,6 +30,7 @@ app.get('/restaurant/:id', (req, res) => {
   });
 });
 
+// Create new restaurant
 app.post('/restaurant', (req, res) => {
   db.addRestaurant(req.body, (err, data) => {
     if (err) {
@@ -38,6 +41,7 @@ app.post('/restaurant', (req, res) => {
   });
 });
 
+// Update restaurant by ID
 app.put('/restaurant/:id', (req, res) => {
   db.updateRestaurant(req, (err) => {
     if (err) {
@@ -48,6 +52,7 @@ app.put('/restaurant/:id', (req, res) => {
   });
 });
 
+// Delete restaurant by ID
 app.delete('/restaurant/:id', (req, res) => {
   db.deleteRestaurant(req, (err) => {
     if (err) {

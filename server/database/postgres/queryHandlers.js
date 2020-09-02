@@ -99,7 +99,17 @@ module.exports = {
     });
   },
 
-  deleteRestaurant() { },
+  deleteRestaurant(req, callback) {
+    const { id } = req.params;
+    const queryString = `DELETE FROM restaurants where id = ${id}`;
+    client.query(queryString, (err, data) => {
+      if (err) {
+        callback(err, null);
+      } else {
+        callback(null, data);
+      }
+    });
+  },
 
 };
 

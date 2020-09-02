@@ -140,10 +140,16 @@ A GET request to /restaurant/:id will fetch an object containing the restaurant 
 
 > Endpoint: /api/add-restaurant
 
-A POST request to the above endpoint will create a new restaurant in the database with the supplied name. Upon success, the ID of the new restaurant will be returned in the server response. The following JSON format is required in the POST request's body in order for the restaurant to be successfully created:
+A POST request to the above endpoint will create a new restaurant in the database with the supplied name. The following JSON format is required in the POST request's body in order for the restaurant to be successfully created:
 
 ```sh
 { "name":"New Restaurant Name", "images":"0000:0001:0002:0003:0004:0005" }
+```
+
+Upon success, the ID of the new restaurant will be returned in the server response in this format:
+
+```sh
+{ "newId": "New ID: 10000001" }
 ```
 
 ### PUT

@@ -58,11 +58,11 @@ module.exports = {
     const { name } = restaurantData;
     const { images } = restaurantData;
     const queryString = `INSERT INTO restaurants (name, images) VALUES ('${name}', '${images}')`;
-    client.query(queryString, (err, data) => {
+    client.query(queryString, (err) => {
       if (err) {
         callback(err, null);
       } else {
-        let resData = {};
+        const resData = {};
         client.query('SELECT id FROM restaurants ORDER BY id DESC LIMIT 1', (error, id) => {
           if (err) {
             resData.newId = 'Error: ID could not be found';
@@ -78,18 +78,6 @@ module.exports = {
   updateRestaurant() { },
 
   deleteRestaurant() { },
-
-  getLastRestaurantId() {
-    let id = -1;
-    client.query('SELECT id FROM restaurants ORDER BY id DESC LIMIT 1', (err, data) => {
-      if (err) {
-        id = 'Error: ID could not be found';
-      } else {
-        id = data;
-        return id;
-      }
-    });
-  },
 
 };
 

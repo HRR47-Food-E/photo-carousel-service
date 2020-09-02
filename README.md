@@ -138,7 +138,7 @@ A GET request to /restaurant/:id will fetch an object containing the restaurant 
 
 ### POST
 
-> Endpoint: /api/add-restaurant
+> Endpoint: /restaurant/create
 
 A POST request to the above endpoint will create a new restaurant in the database with the supplied name. The following JSON format is required in the POST request's body in order for the restaurant to be successfully created:
 

@@ -10,7 +10,7 @@ const target = 10000000;
 
 for (let i = 1; i <= target; i += 1) {
   // Create string to store restaurant data
-  let restaurantData = `${i},`;
+  let restaurantData = '';
   // Generate random fake restaurant name
   let name = faker.company.companyName();
   name = name.split('');

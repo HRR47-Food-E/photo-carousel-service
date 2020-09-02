@@ -61,10 +61,10 @@ class App extends React.Component {
     };
   }
 
-  retrievePhotos(restaurantID) {
+  retrievePhotos(restaurantId) {
     const options = {
       method: 'get',
-      url: `${apiEndpoint}api/photos/${restaurantID}`,
+      url: `${apiEndpoint}restaurant/${restaurantId}`,
       failure: () => {
         console.log('Request failed');
       },

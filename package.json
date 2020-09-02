@@ -12,7 +12,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "node server/dataSeed.js",
+    "generate": "node server/database/__data/__dataGeneration.js",
     "test": "jest",
     "build": "webpack --config webpack.config.js --watch",
     "start": "nodemon server/index.js",

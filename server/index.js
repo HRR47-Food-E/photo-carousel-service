@@ -28,7 +28,7 @@ app.get('/restaurant/:id', (req, res) => {
   });
 });
 
-app.post('/restaurant/create', (req, res) => {
+app.post('/restaurant', (req, res) => {
   db.addRestaurant(req.body, (err, data) => {
     if (err) {
       res.status(500).send(`An internal error occurred: ${err}`);

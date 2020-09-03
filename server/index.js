@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 // const path = require('path');
@@ -18,53 +19,53 @@ app.use('/:id', express.static('public'));
 
 // Get restaurant data by ID
 app.get('/restaurant/:id', (req, res) => {
-  console.time('GET');
+  // console.time('GET');
   db.findRestaurant(req.params.id, (err, data) => {
     if (err) {
       res.status(500).send(`An internal error occurred: ${err}`);
     } else {
       res.status(200).send(data);
     }
-    console.timeEnd('GET');
+    // console.timeEnd('GET');
   });
 });
 
 // Create new restaurant
 app.post('/restaurant', (req, res) => {
-  console.time('POST');
+  // console.time('POST');
   db.addRestaurant(req.body, (err, data) => {
     if (err) {
       res.status(500).send(`An internal error occurred: ${err}`);
     } else {
       res.status(201).send(data);
     }
-    console.timeEnd('POST');
+    // console.timeEnd('POST');
   });
 });
 
 // Update restaurant by ID
 app.put('/restaurant/:id', (req, res) => {
-  console.time('PUT');
+  // console.time('PUT');
   db.updateRestaurant(req, (err) => {
     if (err) {
       res.status(500).send(`An error occurred: ${err}`);
     } else {
       res.status(200).send(`Restaurant ${req.params.id} has been updated with the name: ${req.body.name}`);
     }
-    console.timeEnd('PUT');
+    // console.timeEnd('PUT');
   });
 });
 
 // Delete restaurant by ID
 app.delete('/restaurant/:id', (req, res) => {
-  console.time('DELETE');
+  // console.time('DELETE');
   db.deleteRestaurant(req, (err) => {
     if (err) {
       res.status(500).send(`An error occurred: ${err}`);
     } else {
       res.status(200).send(`Restaurant ${req.params.id} has been deleted`);
     }
-    console.timeEnd('DELETE');
+    // console.timeEnd('DELETE');
   });
 });
 

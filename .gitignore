@@ -32,3 +32,6 @@ public/dist
 # Generated Data
 __data.csv
 __dataTest.csv
+
+# License Key for New Relic
+newrelic.js

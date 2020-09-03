@@ -100,7 +100,7 @@ psql tagaz
 
 ```sh
 COPY restaurants(name, images)
-FROM <path to CSV file from your computer root directory>
+FROM '<path to CSV file from your computer root directory>'
 DELIMITER ','
 CSV HEADER;
 ```

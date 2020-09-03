@@ -1,0 +1,25 @@
+config:
+  target: "http://127.0.0.1:3001"
+  phases:
+    - duration: 5
+      arrivalRate: 1
+      name: Start
+    - duration: 20
+      arrivalRate: 10
+      name: Warm up
+    - duration: 60
+      arrivalRate: 10
+      rampTo: 100
+      name: Ramp up to 100
+    - duration: 60
+      arrivalRate: 100
+      rampTo: 500
+      name: Ramp up to 500
+    - duration: 60
+      arrivalRate: 500
+      name: Sustained load at 500
+scenarios:
+  - name: "Get restaurant data"
+    flow:
+      - get:
+          url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"

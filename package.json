@@ -15,8 +15,7 @@
     "generate": "node server/database/__data/__dataGeneration.js",
     "test": "jest",
     "build": "webpack --config webpack.config.js --watch",
-    "start": "nodemon server/index.js",
-    "schema": "mysql -u root < server/database/mysql/schema.sql"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

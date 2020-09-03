@@ -60,7 +60,9 @@ npm run generate
 
 ### Installing & Setting up PostgreSQL
 
-> Data from the CSV file will be copied directly into PostgreSQL "Tagaz" database
+> Data from the CSV file will be copied directly into PostgreSQL "Tagaz" database.
+
+> If you already have PostgreSQL installed, skip ahead and begin with Step 3.
 
 1. From within the root directory of the repo, run these commands to set up PSQL with Homebrew:
 
@@ -76,12 +78,12 @@ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 ```sh
 alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+pg_start
 ```
 
 3. Create database Tagaz and enter PSQL CLI:
 
 ```sh
-pg_start
 createdb 'tagaz'
 psql tagaz
 ```

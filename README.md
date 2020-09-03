@@ -83,6 +83,8 @@ pg_start
 
 3. Create database Tagaz and enter PSQL CLI:
 
+> Run these commands from within the ROOT directory of the repo.
+
 ```sh
 createdb 'tagaz'
 psql tagaz

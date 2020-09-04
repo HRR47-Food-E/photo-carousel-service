@@ -3,23 +3,35 @@ config:
   phases:
     - duration: 5
       arrivalRate: 1
-      name: Start
+      rampTo: 10
+      name: Start with 5RPS, ramp to 50RPS
     - duration: 20
       arrivalRate: 10
-      name: Warm up
+      name: Sustain at 50RPS
     - duration: 60
       arrivalRate: 10
+      rampTo: 20
+      name: Ramp to 100RPS
+    - duration: 120
+      arrivalRate: 20
+      name: Sustain at 100RPS
+    - duration: 60
+      arrivalRate: 20
       rampTo: 100
-      name: Ramp up to 100
-    - duration: 60
+      name: Ramp to 500RPS
+    - duration: 120
       arrivalRate: 100
-      rampTo: 500
-      name: Ramp up to 500
-    - duration: 60
-      arrivalRate: 500
-      name: Sustained load at 500
+      name: Sustain at 500RPS
 scenarios:
   - name: "Get restaurant data"
     flow:
+      - get:
+          url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"
+      - get:
+          url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"
+      - get:
+          url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"
+      - get:
+          url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"
       - get:
           url: "/restaurant/{{ $randomNumber(9000000, 10000000) }}"

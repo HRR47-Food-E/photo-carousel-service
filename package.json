@@ -15,7 +15,10 @@
     "generate": "node server/database/__data/__dataGeneration.js",
     "test": "jest",
     "build": "webpack --config webpack.config.js --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "stress:100": "$(npm bin)/artillery run server/stress-tests/100-GET-RPS.yml",
+    "stress:500": "$(npm bin)/artillery run server/stress-tests/500-GET-RPS.yml",
+    "stress:1000": "$(npm bin)/artillery run server/stress-tests/1000-GET-RPS.yml"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

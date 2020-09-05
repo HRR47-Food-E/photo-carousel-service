@@ -37,7 +37,7 @@ app.post('/restaurant', (req, res) => {
     if (err) {
       res.status(500).send(`An internal error occurred: ${err}`);
     } else {
-      res.status(201).send(data);
+      res.sendStatus(201);
     }
     // console.timeEnd('POST');
   });

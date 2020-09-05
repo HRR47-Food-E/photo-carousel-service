@@ -62,21 +62,11 @@ module.exports = {
     // create query string for PSQL insertion
     const queryString = `INSERT INTO restaurants (name, images) VALUES ('${name}', '${images}')`;
     // send query to PSQL
-    client.query(queryString, (err) => {
+    client.query(queryString, (err, data) => {
       if (err) {
         callback(err, null);
       } else {
-        // upon success, query for most recently added ID
-        const resData = {};
-        client.query('SELECT id FROM restaurants ORDER BY id DESC LIMIT 1', (error, id) => {
-          if (err) {
-            resData.newId = 'Error: ID could not be found';
-          } else {
-            resData.newId = `New ID: ${id.rows[0].id}`;
-          }
-          // send most recently added ID back to client
-          callback(null, resData);
-        });
+        callback(null, data);
       }
     });
   },

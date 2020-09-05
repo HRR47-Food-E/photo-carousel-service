@@ -12,6 +12,42 @@ const target = 10000000;
 writeStream.write('name, images\n');
 
 for (let i = 1; i <= target; i += 1) {
+  // status logs
+  if (i === 1) {
+    console.log('Starting process...');
+  } else if (i === 10) {
+    console.log('10');
+  } else if (i === 50) {
+    console.log('50');
+  } else if (i === 100) {
+    console.log('100');
+  } else if (i === 1000) {
+    console.log('1000');
+  } else if (i === 10000) {
+    console.log('10000');
+  } else if (i === 100000) {
+    console.log('100000');
+  } else if (i === 1000000) {
+    console.log('1000000');
+  } else if (i === 2000000) {
+    console.log('2000000');
+  } else if (i === 3000000) {
+    console.log('3000000');
+  } else if (i === 4000000) {
+    console.log('4000000');
+  } else if (i === 5000000) {
+    console.log('5000000');
+  } else if (i === 6000000) {
+    console.log('6000000');
+  } else if (i === 7000000) {
+    console.log('7000000');
+  } else if (i === 8000000) {
+    console.log('8000000');
+  } else if (i === 9000000) {
+    console.log('9000000');
+  } else if (i === 10000000) {
+    console.log('10000000');
+  }
   // Create string to store restaurant data
   let restaurantData = '';
   // Generate random fake restaurant name

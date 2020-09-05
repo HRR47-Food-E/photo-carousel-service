@@ -69,10 +69,33 @@ class App extends React.Component {
         console.log('Request failed');
       },
       complete: (res) => {
-        console.log(res.responseJSON);
+        // pull restaurant name from JSON response
+        let { name } = res.responseJSON.rows[0];
+        // replace any slashes with commas
+        if (name.includes('/')) {
+          name = name.split('/');
+          name = name.join(',');
+        }
+        // create array for photos
+        const photoUrls = [];
+        // pull photo data from JSON response
+        let { images } = res.responseJSON.rows[0];
+        images = images.split(':');
+        // S3 URL
+        const s3 = 'https://tagaz.s3-us-west-1.amazonaws.com/img';
+        // for each photo, build an object that has:
+        // 1) concatenated S3 image URL
+        // 2) image ID number starting at 1 (for layout purposes)
+        for (let i = 0; i < images.length; i += 1) {
+          const photo = {};
+          photo.Image_url = `${s3}${images[i]}.jpeg`;
+          photo.Image_id = i + 1;
+          // push each photo into photo array
+          photoUrls.push(photo);
+        }
         this.setState({
-          photoArray: res.responseJSON.photoArray,
-          name: res.responseJSON.name.toUpperCase(),
+          photoArray: photoUrls,
+          name: name.toUpperCase(),
         });
       },
     };

@@ -46,7 +46,7 @@ color: white;
 }
 `;
 
-const apiEndpoint = 'http://localhost:3001/';
+// const apiEndpoint = 'http://localhost:3001/';
 
 class App extends React.Component {
   constructor(props) {
@@ -64,7 +64,7 @@ class App extends React.Component {
   retrievePhotos(restaurantId) {
     const options = {
       method: 'get',
-      url: `${apiEndpoint}restaurant/${restaurantId}`,
+      url: `/restaurant/${restaurantId}`,
       failure: () => {
         console.log('Request failed');
       },

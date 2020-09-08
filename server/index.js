@@ -33,7 +33,7 @@ app.get('/restaurant/:id', (req, res) => {
 // Create new restaurant
 app.post('/restaurant', (req, res) => {
   // console.time('POST');
-  db.addRestaurant(req.body, (err, data) => {
+  db.addRestaurant(req.body, (err) => {
     if (err) {
       res.status(500).send(`An internal error occurred: ${err}`);
     } else {

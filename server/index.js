@@ -9,6 +9,10 @@ const db = require('./database/postgres/queryHandlers.js');
 const app = express();
 const port = 3001;
 
+app.get('/loaderio-42be828e897fd3be95ea1ee7566fa952', (req, res) => {
+  res.send('loaderio-42be828e897fd3be95ea1ee7566fa952');
+});
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

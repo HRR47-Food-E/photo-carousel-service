@@ -1,12 +1,12 @@
-# Tagaz - Photo Carousel Module
+# Food-E - Photo Carousel Module
 
-> This module displays photos for a restaurant listing page on Tagaz!
+> This module displays photos for a restaurant listing page on Food-E!
 
 ## Related Projects
 
-  - https://github.com/Tagaz/info-sidebar-service
-  - https://github.com/Tagaz/tips-recommendations-service
-  - https://github.com/Tagaz/similar-restaurants-service
+  - https://github.com/HRR47-Food-E/info-sidebar-service
+  - https://github.com/HRR47-Food-E/tips-recommendations
+  - https://github.com/HRR47-Food-E/similar-restaurants-service
 
 ## Table of Contents
 
@@ -60,7 +60,7 @@ npm run generate
 
 ### Installing & Setting up PostgreSQL
 
-> Data from the CSV file will be copied directly into PostgreSQL "Tagaz" database.
+> Data from the CSV file will be copied directly into PostgreSQL "Food-E" database.
 
 > If you already have PostgreSQL installed, skip ahead and begin with Step 3.
 
@@ -81,13 +81,13 @@ alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.
 pg_start
 ```
 
-3. Create database Tagaz and enter PSQL CLI:
+3. Create database Food-E and enter PSQL CLI:
 
 > Run these commands from within the ROOT directory of the repo.
 
 ```sh
-createdb 'tagaz'
-psql tagaz
+createdb 'Food-E'
+psql Food-E
 ```
 
 4. Run schema file to create table "restaurant":
